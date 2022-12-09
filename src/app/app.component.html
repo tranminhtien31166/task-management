@@ -1,24 +1,69 @@
 <!-- <h2>Tasks</h2> -->
 
-<div class="row mt-5">
-    <div class="col-3 p-3">
+<div class="row mt-5" cdkDropListGroup>
+  <div class="col-3 p-3">
+    <div class="task">
+      <div class="task-title">
+        <span>Started</span>
+      </div>
       <div class="task-body">
-        <p>Started</p>
+        <div
+          cdkDropList
+          [cdkDropListData]="todo"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <div
+            class="example-box card p-2 mb-2"
+            *ngFor="let item of todo"
+            cdkDrag
+          >
+            {{ item }}
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-3 p-3">
+  </div>
+
+  <div class="col-3 p-3">
+    <div class="task">
+      <div class="task-title">
+        <span>Doing</span>
+      </div>
       <div class="task-body">
-        <p>Doing</p>
+        <div
+          cdkDropList
+          [cdkDropListData]="done"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <div
+            class="example-box card p-2 mb-2"
+            *ngFor="let item of done"
+            cdkDrag
+          >
+            {{ item }}
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-3 p-3">
-      <div class="task-body">
-        <p>In Review</p>
+  </div>
+
+  <div class="col-3 p-3">
+    <div class="task">
+      <div class="task-title">
+        <span>In Review</span>
       </div>
+      <div class="task-body"></div>
     </div>
-    <div class="col-3 p-3">
-      <div class="task-body">
-        <p>Complete</p>
+  </div>
+
+  <div class="col-3 p-3">
+    <div class="task">
+      <div class="task-title">
+        <span>Complete</span>
       </div>
-    <!-- </div> -->
+      <div class="task-body"></div>
+    </div>
+  </div>
 </div>
