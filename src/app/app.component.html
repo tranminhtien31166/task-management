@@ -1,8 +1,24 @@
-<h2>Tasks</h2>
+<!-- <h2>Tasks</h2> -->
 
-<ul>
-  <li *ngFor="let t of tasks|async">
-    Task: {{t.id}}, {{t.description}}
-  </li>
-</ul>
-
+<div class="row mt-5">
+    <div class="col-3 p-3">
+      <div class="task-body">
+        <p>Started</p>
+      </div>
+    </div>
+    <div class="col-3 p-3">
+      <div class="task-body">
+        <p>Doing</p>
+      </div>
+    </div>
+    <div class="col-3 p-3">
+      <div class="task-body">
+        <p>In Review</p>
+      </div>
+    </div>
+    <div class="col-3 p-3">
+      <div class="task-body">
+        <p>Complete</p>
+      </div>
+    <!-- </div> -->
+</div>

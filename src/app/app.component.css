@@ -1,0 +1,14 @@
+
+.task-body{
+    height: 500px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #eff2f5;
+    border-radius: .625rem;
+    box-shadow: 0 0 20px 0 rgb(76 87 125 / 2%);
+}
