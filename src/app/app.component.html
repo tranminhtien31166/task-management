@@ -1,9 +1,10 @@
 <!-- <h2>Tasks</h2> -->
 
-<div class="row mt-5" cdkDropListGroup>
-  <div class="col-3 p-3">
+<div class="board mt-5 container-fluid" cdkDropListGroup>
+  <div class="task-colum pe-2">
     <div class="task">
-      <div class="task-title">
+      <div class="task-title pb-2">
+        <img class="pin" src="assets/icon/location.svg" />
         <span>Started</span>
       </div>
       <div class="task-body">
@@ -13,21 +14,41 @@
           class="example-list"
           (cdkDropListDropped)="drop($event)"
         >
-          <div
-            class="example-box card p-2 mb-2"
-            *ngFor="let item of todo"
-            cdkDrag
-          >
+          <div class="example-box p-2 mb-3" *ngFor="let item of todo" cdkDrag>
+            <img class="edit" src="assets/icon/edit.svg" />
+            <div class="d-flex flex-wrap">
+              <span class="label label-success me-1"></span>
+              <span class="label label-danger me-1"></span>
+            </div>
             {{ item }}
+
+            <div
+              class="task-footer d-flex justify-content-start align-items-center py-2"
+            >
+              <img src="assets/icon/subject.svg" />
+              <div class="d-flex justify-content-start ms-2">
+                <img src="assets/icon/chat.svg" />
+                <span class="ms-1">2</span>
+              </div>
+              <div class="d-flex justify-content-start ms-2">
+                <img src="assets/icon/checkbox.svg" />
+                <span class="ms-1">2/3</span>
+              </div>
+              <div class="d-flex justify-content-start ms-2">
+                <img src="assets/icon/clock.svg" />
+                <span class="ms-1">Dec 12</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="col-3 p-3">
+  <div class="task-colum pe-2">
     <div class="task">
-      <div class="task-title">
+      <div class="task-title pb-2">
+        <img class="pin" src="assets/icon/location.svg" />
         <span>Doing</span>
       </div>
       <div class="task-body">
@@ -49,19 +70,30 @@
     </div>
   </div>
 
-  <div class="col-3 p-3">
+  <div class="task-colum pe-2">
     <div class="task">
-      <div class="task-title">
+      <div class="task-title pb-2">
+        <img class="pin" src="assets/icon/location.svg" />
         <span>In Review</span>
       </div>
       <div class="task-body"></div>
     </div>
   </div>
 
-  <div class="col-3 p-3">
+  <div class="task-colum pe-2">
     <div class="task">
-      <div class="task-title">
+      <div class="task-title pb-2">
+        <img class="pin" src="assets/icon/location.svg" />
         <span>Complete</span>
+      </div>
+      <div class="task-body"></div>
+    </div>
+  </div>
+
+  <div class="task-colum-add p-3">
+    <div class="task-add">
+      <div class="task-title">
+        <span>Add new +</span>
       </div>
       <div class="task-body"></div>
     </div>

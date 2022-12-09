@@ -12,7 +12,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     BrowserModule
   ],
   exports: [
-    DragDropModule
+    DragDropModule,
   ],
   providers: [BackendService],
   bootstrap: [AppComponent]

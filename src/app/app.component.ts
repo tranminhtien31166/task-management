@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {BackendService} from './backend.service';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

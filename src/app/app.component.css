@@ -1,20 +1,96 @@
 
+.board{
+    bottom: 0;
+    left: 0;
+    margin-bottom: 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 8px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    -webkit-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+}
+.task-colum{
+    box-sizing: border-box;
+    display: inline-block;
+    height: 100%;
+    margin: 0 4px;
+    vertical-align: top;
+    white-space: nowrap;
+    width: 285px;
+}
+.task-colum-add{
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0 4px;
+    vertical-align: top;
+    white-space: nowrap;
+    width: 285px;
+}
 .task{
-    height: 500px;
+    height: auto;
     position: relative;
     display: flex;
     flex-direction: column;
     min-width: 0;
     padding: 10px;
     word-wrap: break-word;
-    background-color: #fff;
+    background-color: #B8B5FF;
     background-clip: border-box;
     border: 1px solid #eff2f5;
     border-radius: .625rem;
     box-shadow: 0 0 20px 0 rgb(76 87 125 / 2%);
 }
+.task-add{
+    text-align: center;
+    padding: 5px;
+    background-color: #d4d3f896;
+    border-radius: .625rem;
+    cursor: pointer;
+}
 .task-title span{
     font-weight: 500;
-    font-size: 1.275rem;
+    font-size: 20px;
     color: #181c32;
+}
+.task-title .pin{
+    position: absolute;
+    right: 10px;
+}
+.example-box{
+    background-color: var(--ds-surface-raised,#fff);
+    border-radius: 3px;
+    box-shadow: var(--ds-shadow-raised,0 1px 0 #091e4240);
+    color: var(--ds-text,inherit);
+    cursor: pointer;
+    display: block;
+    margin-bottom: 8px;
+    max-width: 300px;
+    min-height: 20px;
+    position: relative;
+    z-index: 0;
+}
+.example-box:hover{
+    background-color: #f4f8fa;
+}
+.example-box .edit{
+    padding: 3px;
+    position: absolute;
+    right: 5px;
+    background-color: #b8b5ff6b;
+    border-radius: 4px;
+}
+.label{
+    width: 40px;
+    height: 8px;
+    border-radius: 20px;
+}
+.label-success{
+    background-color: #D6ECD2;
+}
+.label-danger{
+    background-color: #F5D3CE;
 }
