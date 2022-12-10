@@ -4,7 +4,7 @@ import { AuthGuard } from '@app/helpers';
 import { TaskListComponent } from './task-list/task-list.component';
 
 const routes: Routes = [
-  { path: 'list', component: TaskListComponent, canActivate: [AuthGuard] },
+  { path: '', component: TaskListComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
