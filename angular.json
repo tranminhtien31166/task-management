@@ -24,8 +24,7 @@
             ],
             "styles": [
             "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-	          "src/styles.css",
-            "src/assets"
+	          "src/styles.css"
             ],
             "scripts": [],
             "aot": false,
