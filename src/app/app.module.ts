@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {BackendService} from './backend.service';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule
