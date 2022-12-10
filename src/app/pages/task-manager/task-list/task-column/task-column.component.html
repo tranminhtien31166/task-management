@@ -1,1 +1,45 @@
-<p>task-column works!</p>
+<div class="task-colum pe-2">
+    <div class="task" [ngStyle]="{ 'background-color': category.color }">
+        <div class="task-title pb-2">
+            <span>{{ category.name }}</span>
+        </div>
+        <div class="task-body">
+            <div cdkDropList [cdkDropListData]="category.cards" class="example-list"
+                (cdkDropListDropped)="drop($event)">
+                <div class="example-box p-2 mb-3" *ngFor="let card of category.cards" cdkDrag>
+                    <img class="edit" src="assets/icon/edit.svg" />
+                    <div class="d-flex flex-wrap">
+                        <span class="label label-success me-1"></span>
+                        <span class="label label-danger me-1"></span>
+                    </div>
+                    <div class="py-2">
+                        <span>{{ card.name }}</span>
+                    </div>
+
+                    <div class="footer-badge">
+                        <img src="assets/icon/subject.svg" />
+                        <div class="ms-2">
+                            <img src="assets/icon/chat.svg" />
+                            <span class="ms-1">2</span>
+                        </div>
+                        <div class="ms-2">
+                            <img src="assets/icon/checkbox.svg" />
+                            <span class="ms-1">2/3</span>
+                        </div>
+                        <div class="ms-2">
+                            <img src="assets/icon/clock.svg" />
+                            <span class="ms-1">Dec 12</span>
+                        </div>
+                    </div>
+                    <div class="footer-assign">
+                        <img class="ms-1" src="assets/images/user/tranminhtien.jpg" />
+                        <img class="ms-1" src="assets/images/user/phamduytin.jpg" />
+                        <img class="ms-1" src="assets/images/user/thaithuytrieu.jpeg" />
+                    </div>
+                </div>
+
+                <div class="cursor">+ Add card</div>
+            </div>
+        </div>
+    </div>
+</div>
