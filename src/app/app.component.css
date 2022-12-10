@@ -69,6 +69,20 @@
     position: absolute;
     right: 10px;
 }
+.footer-badge{
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+}
+.footer-assign{
+    display: flex;
+    justify-content: flex-end;
+}
+.footer-assign img{
+    width: 20px;
+    width: 20px;
+    border-radius: 50%;
+}
 .example-box{
     background-color: var(--ds-surface-raised,#fff);
     border-radius: 3px;
