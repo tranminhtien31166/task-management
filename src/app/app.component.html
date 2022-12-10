@@ -54,7 +54,7 @@
     <div class="task task-doing">
       <div class="task-title pb-2">
         <img class="pin" src="assets/icon/location.svg" />
-        <span>Doing</span>
+        <span>Started</span>
       </div>
       <div class="task-body">
         <div
@@ -69,9 +69,11 @@
               <span class="label label-success me-1"></span>
               <span class="label label-danger me-1"></span>
             </div>
-            {{ item }}
+            <div class="py-2">
+              <span>{{ item }}</span>
+            </div>
 
-            <div class="task-footer py-2">
+            <div class="footer-badge">
               <img src="assets/icon/subject.svg" />
               <div class="ms-2">
                 <img src="assets/icon/chat.svg" />
@@ -86,7 +88,13 @@
                 <span class="ms-1">Dec 12</span>
               </div>
             </div>
+            <div class="footer-assign">
+              <img class="ms-1" src="assets/images/user/tranminhtien.jpg" />
+              <img class="ms-1" src="assets/images/user/phamduytin.jpg" />
+              <img class="ms-1" src="assets/images/user/thaithuytrieu.jpeg" />
+            </div>
           </div>
+
           <div class="cursor">+ Add card</div>
         </div>
       </div>
