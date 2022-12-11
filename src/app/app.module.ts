@@ -9,10 +9,13 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './store/reducers';
 import { AppComponent } from './app.component';
+import { DatePipe } from '@angular/common';
 import { BackendService } from './backend.service';
 import { LoginComponent } from './pages/login/login.component';
 import { HeaderComponent } from '@app/layouts/header/header.component';
 import { AdminComponent } from '@app/layouts/admin.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,11 +29,13 @@ import { AdminComponent } from '@app/layouts/admin.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatDialogModule,
+    BsDatepickerModule,
     StoreModule.forRoot(reducer),
   ],
   providers: [
     { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } },
-    BackendService
+    BackendService,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

@@ -1,35 +1,43 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { AuthenticationService, CardsService } from '@app/services';
-import { ModelCard, ModelUser } from '@app/models';
+import { CardsService } from '@app/services';
+import { ModelCard } from '@app/models';
 import { State } from '@app/store/models/state.model';
 import { CardAction } from '@app/store/actions/card.actions';
 import _find from 'lodash/find';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-task-detail',
   templateUrl: './task-detail.component.html',
-  styleUrls: ['./task-detail.component.css']
+  styleUrls: ['./task-detail.component.css'],
+  providers: [DatePipe],
 })
 export class TaskDetailComponent implements OnInit {
   public cards: Array<ModelCard>
   public card: ModelCard
+  public deadline: any;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data,
     private _cardsService: CardsService,
     public dialogRef: MatDialogRef<TaskDetailComponent>,
     private store: Store<State>,
   ) {
-    this._cardsService.cardObserver$.subscribe(data => this.card = _find(data, (o) => { return o.id == this.data.id }));
+    this._cardsService.cardObserver$.subscribe(data =>
+      this.card = _find(data, (o) => { return o.id == this.data.id })
+    )
   }
 
   ngOnInit(): void {
+    if (this.card.deadline) {
+      this.deadline = new Date(this.card.deadline)
+    }
   }
   public closeFormDialog(close: any) {
     this.dialogRef.close(close);
   }
+
   public openFormAdd(el) {
     let parent = el.currentTarget.parentNode.parentNode;
     parent.querySelector('.form-add').classList.remove('hidden');
@@ -69,6 +77,12 @@ export class TaskDetailComponent implements OnInit {
       this.store.dispatch(new CardAction(card, "UPDATE_CARD_BY_ID"));
       this.closeFocus(el);
     }
+  }
+  public updateDatetime(el) {
+    let card = JSON.parse(JSON.stringify(this.card));
+    card.deadline = this.deadline;
+    this.store.dispatch(new CardAction(card, "UPDATE_CARD_BY_ID"));
+    this.closeFocus(el);
   }
 
 }

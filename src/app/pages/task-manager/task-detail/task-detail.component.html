@@ -31,11 +31,19 @@
             </div>
         </div>
         <div class="me-5 form-time">
-            <p class="mb-1">Due tiem</p>
-            <p>12/09/2022</p>
+            <p class="mb-1">Deadline</p>
+            <div class="mt-2">
+                <input type="text" class="form-control form-control-sm form-add" bsDatepicker placeholder="Deadline..."
+                    [(bsValue)]="deadline" (focus)="catchFocus($event)" />
+                <div class="text-end mt-2 btn-add hidden">
+                    <img class="cursor me-2" src="assets/icon/close.svg" (click)="closeFocus($event)">
+                    <button type="button" class="btn btn-primary" (click)="updateDatetime($event)">Add</button>
+                </div>
+            </div>
+
         </div>
         <div class="me-5 form-members">
-            <p class="mb-1">Label</p>
+            <p class="mb-1">Priority</p>
             <div class="d-flex justify-content-start">
                 <div class="me-1 bg-secondary label"></div>
                 <div class="me-1 bg-primary label"></div>

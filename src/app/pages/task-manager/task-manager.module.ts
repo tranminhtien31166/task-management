@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TaskManagerRoutingModule } from './task-manager-routing.module';
 import { TaskColumnComponent } from './task-list/task-column/task-column.component';
@@ -7,7 +7,18 @@ import { TaskListComponent } from './task-list/task-list.component';
 import { TaskDetailComponent } from './task-detail/task-detail.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MaterialModule } from '@app/modules/material.module';
+import { viLocale } from "ngx-bootstrap/locale";
+import { defineLocale } from "ngx-bootstrap/chronos";
+import { BsDatepickerModule, BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
 
+defineLocale("vi", viLocale);
+
+export function getDatepickerConfig(): BsDatepickerConfig {
+  return Object.assign(new BsDatepickerConfig(), {
+    containerClass: 'theme-dark-blue',
+    dateInputFormat: 'DD/MM/YYYY'
+  });
+}
 @NgModule({
   declarations: [
     TaskListComponent,
@@ -18,11 +29,21 @@ import { MaterialModule } from '@app/modules/material.module';
   imports: [
     CommonModule,
     MaterialModule,
-    TaskManagerRoutingModule
+    TaskManagerRoutingModule,
+    BsDatepickerModule.forRoot(),
   ],
   exports: [
     DragDropModule,
   ],
-  // schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  providers: [
+    { provide: BsDatepickerConfig, useFactory: getDatepickerConfig },
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class TaskManagerModule { }
+export class TaskManagerModule {
+  constructor(
+    private bsLocaleService: BsLocaleService,
+  ) {
+    this.bsLocaleService.use('vi');
+  }
+}
