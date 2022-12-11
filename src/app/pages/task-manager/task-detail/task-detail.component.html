@@ -34,7 +34,7 @@
             <p class="mb-1">Deadline</p>
             <div class="mt-2">
                 <input type="text" class="form-control form-control-sm form-add" bsDatepicker placeholder="Deadline..."
-                    [(bsValue)]="deadline" (focus)="catchFocus($event)" />
+                    [(bsValue)]="deadline" (focus)="catchFocus($event)" [minDate]="minDate" />
                 <div class="text-end mt-2 btn-add hidden">
                     <img class="cursor me-2" src="assets/icon/close.svg" (click)="closeFocus($event)">
                     <button type="button" class="btn btn-primary" (click)="updateDatetime($event)">Add</button>

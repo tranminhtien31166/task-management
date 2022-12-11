@@ -18,6 +18,7 @@ export class TaskDetailComponent implements OnInit {
   public cards: Array<ModelCard>
   public card: ModelCard
   public deadline: any;
+  public minDate = new Date();
   constructor(
     @Inject(MAT_DIALOG_DATA) public data,
     private _cardsService: CardsService,

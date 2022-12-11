@@ -18,18 +18,18 @@
                     </div>
 
                     <div class="footer-badge">
-                        <img src="assets/icon/subject.svg" />
+                        <img *ngIf="card.description" src="assets/icon/subject.svg" />
                         <div class="ms-2">
                             <img src="assets/icon/chat.svg" />
                             <span class="ms-1">2</span>
                         </div>
-                        <div class="ms-2">
+                        <div *ngIf="card.checklist && card.checklist.length > 0" class="ms-2">
                             <img src="assets/icon/checkbox.svg" />
                             <span class="ms-1">2/3</span>
                         </div>
-                        <div class="ms-2">
+                        <div *ngIf="card.deadline" class=" ms-2">
                             <img src="assets/icon/clock.svg" />
-                            <span class="ms-1">Dec 12</span>
+                            <span class="ms-1">{{renderFieldTime(card)}}</span>
                         </div>
                     </div>
                     <div class="footer-assign">

@@ -65,6 +65,11 @@ export class TaskColumnComponent implements OnInit {
     });
     this.dialogRef.afterClosed().subscribe((result) => { });
   }
+  public renderFieldTime(card) {
+    if (card.deadline) {
+      return moment(card.deadline).format('DD/MMM')
+    }
+  }
   public openFormAdd(el) {
     let parent = el.currentTarget.parentNode;
     parent.querySelector('.form-add').classList.remove('hidden');
