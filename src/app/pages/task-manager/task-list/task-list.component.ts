@@ -50,7 +50,9 @@ export class TaskListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    // this.taskCategory.map((task, index) => {
+    //   return task.cards = this.cards.filter((card) => { return card.category == task.id })
+    // })
   }
   ngDoCheck(): void {
     this.taskCategory.map((task, index) => {

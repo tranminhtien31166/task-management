@@ -39,10 +39,9 @@ export class TaskColumnComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.currentUser);
   }
 
-  public drop(event: CdkDragDrop<string[]>) {
+  public async drop(event: CdkDragDrop<string[]>, category: number) {
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
@@ -50,12 +49,16 @@ export class TaskColumnComponent implements OnInit {
         event.currentIndex
       );
     } else {
+
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
         event.previousIndex,
         event.currentIndex
       );
+      let cardHandle = JSON.parse(JSON.stringify(event.container.data[event.currentIndex]));
+      cardHandle.category = category;
+      this.store.dispatch(new CardAction(cardHandle, "UPDATE_CARD_BY_ID"));
     }
   }
   public openModalCardDetail(data) {

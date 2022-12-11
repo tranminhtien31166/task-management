@@ -5,7 +5,7 @@
         </div>
         <div class="task-body">
             <div cdkDropList [cdkDropListData]="category.cards" class="example-list"
-                (cdkDropListDropped)="drop($event)">
+                (cdkDropListDropped)="drop($event, category.id)">
                 <div class="example-box p-2 mb-3" *ngFor="let card of category.cards" cdkDrag
                     (click)="openModalCardDetail(card)">
                     <img class="edit" src="assets/icon/edit.svg" />
