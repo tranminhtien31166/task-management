@@ -8,6 +8,7 @@ import { CardAction } from '@app/store/actions/card.actions';
 import _find from 'lodash/find';
 import { DatePipe } from '@angular/common';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { flatten } from '@angular/compiler';
 
 @Component({
   selector: 'app-task-detail',
@@ -21,7 +22,8 @@ export class TaskDetailComponent implements OnInit {
   public deadline: any;
   public minDate = new Date();
   public form: FormGroup;
-  public users = [{ id: 1, name: "tien" }];
+  public users = [{ id: 1, name: "tranminhtien" }, { id: 2, name: "thaithuytrieu" }, { id: 3, name: "phamduytin" }];
+  public isChangeMember: boolean = false;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data,
     private _cardsService: CardsService,
@@ -43,7 +45,7 @@ export class TaskDetailComponent implements OnInit {
 
   private _formControl() {
     this.form = this._formBuilder.group({
-      users: [{ value: 1, disabled: false }],
+      member: [{ value: this.card.assign, disabled: false }],
     });
   }
 
@@ -104,7 +106,19 @@ export class TaskDetailComponent implements OnInit {
     card.priority = !card.priority;
     this.store.dispatch(new CardAction(card, "UPDATE_CARD_BY_ID"));
   }
-  public updateUsersList(el) {
+  public hanldeChangeMember(el) {
+    this.isChangeMember = true;
+  }
+  public updateMember(el) {
+    let card = JSON.parse(JSON.stringify(this.card));
+    card.assign = this.f.member.value;
+    this.store.dispatch(new CardAction(card, "UPDATE_CARD_BY_ID"));
+    this.isChangeMember = false;
+  }
+  public closeUpdateMember(el) {
+    this.isChangeMember = false;
+  }
+  public onSearch() {
 
   }
 }

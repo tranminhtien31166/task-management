@@ -25,9 +25,7 @@ export class TaskListComponent implements OnInit {
   ngOnInit(): void {
   }
   ngDoCheck(): void {
-    console.log('ngDoCheck');
     if (this.cards != this.cardsClone) {
-      console.log('update');
       this.cardsClone = this.cards;
       this.taskCategory = this._cardsService.filterByCategory();
     }
