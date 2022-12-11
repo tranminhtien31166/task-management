@@ -1,11 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-// import {BackendService} from './backend.service';
-import {
-  CdkDragDrop,
-  moveItemInArray,
-  transferArrayItem,
-} from "@angular/cdk/drag-drop";
-import { ModelTaskCategory } from "@app/constant";
 
 @Component({
   selector: "app-task-list",
@@ -18,7 +11,7 @@ export class TaskListComponent implements OnInit {
       id: 0,
       name: "Draf",
       color: "#adb5bd",
-      cards: [],
+      cards: [{ id: 1, name: "hihi" }],
     },
     {
       id: 1,
@@ -43,21 +36,4 @@ export class TaskListComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-
-  public drop(event: CdkDragDrop<string[]>) {
-    if (event.previousContainer === event.container) {
-      moveItemInArray(
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex
-      );
-    } else {
-      transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex
-      );
-    }
-  }
 }

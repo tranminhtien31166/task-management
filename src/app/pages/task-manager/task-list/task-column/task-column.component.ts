@@ -4,7 +4,11 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from "@angular/cdk/drag-drop";
+
+import { MatDialog } from '@angular/material/dialog';
+
 import { ModelTaskCategory } from "@app/constant";
+import { TaskDetailComponent } from "../../task-detail/task-detail.component";
 
 @Component({
   selector: "app-task-column",
@@ -13,10 +17,12 @@ import { ModelTaskCategory } from "@app/constant";
 })
 export class TaskColumnComponent implements OnInit {
   @Input() category: ModelTaskCategory;
-  public todo = ["Get to work", "Pick up groceries", "Go home", "Fall asleep"];
-  constructor() {}
+  public dialogRef: any;
+  constructor(
+    public dialog: MatDialog
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   public drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(
@@ -32,5 +38,11 @@ export class TaskColumnComponent implements OnInit {
         event.currentIndex
       );
     }
+  }
+  openModalCardDetail() {
+    this.dialogRef = this.dialog.open(TaskDetailComponent, {
+      width: '70vw',
+    });
+    this.dialogRef.afterClosed().subscribe((result) => { });
   }
 }
