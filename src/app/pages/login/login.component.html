@@ -6,7 +6,7 @@
 <div class="login">
   <p class="title">Team task overview</p>
 
-  <div *ngFor="let user of users" class="user-form line" (click)="goToHome()">
+  <div *ngFor="let user of users" class="user-form line" (click)="login(user)">
     <img src={{user.avatar}} />
     <div class="ms-4 my-auto">
       <p class="mb-1 name">{{user.name}}</p>

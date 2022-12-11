@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-// import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '@app/services';
+import { ModelUser } from '@app/models';
 
 @Component({
   selector: 'app-header',
@@ -9,16 +10,16 @@ import { Router } from '@angular/router';
 })
 
 export class HeaderComponent implements OnInit {
-
-
+  public currentUser: ModelUser;
   constructor(
     private _router: Router,
+    private _authenticationService: AuthenticationService,
   ) {
     // this._authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }
 
   ngOnInit(): void {
-    // this._getWorkingDate();
+    this._authenticationService.currentUser.subscribe(user => this.currentUser = user);
   }
 
   public logout() {

@@ -7,7 +7,7 @@ import {
 
 import { MatDialog } from '@angular/material/dialog';
 
-import { ModelTaskCategory } from "@app/constant";
+import { ModelTaskCategory } from "@app/models";
 import { TaskDetailComponent } from "../../task-detail/task-detail.component";
 
 @Component({

@@ -2,8 +2,8 @@
   <span class="active">Task manager</span>
   <div class="user-info d-flex justify-content-start">
     <div class="d-flex align-items-center me-2">
-      <img class="avatar" src="assets/images/user/tranminhtien.jpg" />
-      <span>Trần Minh Tiến</span>
+      <img class="avatar" src={{currentUser.avatar}} />
+      <span>{{currentUser.name}}</span>
     </div>
     <div class="d-flex align-items-center cursor" (click)="logout()">
       <span class="me-0">Logout </span>

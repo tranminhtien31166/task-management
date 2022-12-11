@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '@app/services';
+
 
 @Component({
   selector: 'app-login',
@@ -14,11 +16,13 @@ export class LoginComponent implements OnInit {
   ]
   constructor(
     private _router: Router,
+    private _authenticationService: AuthenticationService,
   ) { }
 
   ngOnInit(): void {
   }
-  public goToHome() {
+  public login(user) {
+    this._authenticationService.login(user);
     this._router.navigate(['/task-manager']);
   }
 
