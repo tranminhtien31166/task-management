@@ -4,11 +4,15 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from "@angular/cdk/drag-drop";
-
 import { MatDialog } from '@angular/material/dialog';
-
 import { ModelTaskCategory } from "@app/models";
 import { TaskDetailComponent } from "../../task-detail/task-detail.component";
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { Article } from '@app/store/models/article.model';
+import { State } from '@app/store/models/state.model';
+import { AddArticleAction } from '@app/store/actions/article.actions';
+
 
 @Component({
   selector: "app-task-column",
@@ -18,12 +22,21 @@ import { TaskDetailComponent } from "../../task-detail/task-detail.component";
 export class TaskColumnComponent implements OnInit {
   @Input() category: ModelTaskCategory;
   public dialogRef: any;
+  articles$: Observable<Array<Article>>;
+  public data: Array<Article>
   constructor(
+    private store: Store<State>,
     public dialog: MatDialog
-  ) { }
+  ) {
+    this.articles$ = this.store.select((store) => {
+      return store.article
+    });
+    this.articles$.subscribe(user => this.data = user);
+  }
 
   ngOnInit(): void {
   }
+
   public drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(
@@ -60,7 +73,11 @@ export class TaskColumnComponent implements OnInit {
   public addForm(el) {
     let parent = el.currentTarget.parentNode.parentNode.parentNode;
     let value = parent.querySelector('.input').value;
-    console.log(value);
 
+    this.store.dispatch(new AddArticleAction({ name: value }));
+
+  }
+  public async viewForm(el) {
+    console.log(this.data);
   }
 }
