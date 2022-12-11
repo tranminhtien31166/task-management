@@ -9,7 +9,7 @@ import { ModelTaskCategory } from "@app/models";
 import { TaskDetailComponent } from "../../task-detail/task-detail.component";
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { AuthenticationService } from '@app/services';
+import { AuthenticationService, CardsService } from '@app/services';
 import { ModelCard, ModelUser } from '@app/models';
 import { State } from '@app/store/models/state.model';
 import { CardAction } from '@app/store/actions/card.actions';
@@ -24,18 +24,15 @@ export class TaskColumnComponent implements OnInit {
   @Input() category: ModelTaskCategory;
   public dialogRef: any;
   public currentUser: ModelUser;
-  private cardObserver$: Observable<Array<ModelCard>>;
   public cards: Array<ModelCard>
   constructor(
     private _authenticationService: AuthenticationService,
+    private _cardsService: CardsService,
     private store: Store<State>,
     public dialog: MatDialog
   ) {
-    this.cardObserver$ = this.store.select((store) => {
-      return store.cards
-    });
-    this.cardObserver$.subscribe(data => this.cards = data);
-    this._authenticationService.currentUser.subscribe(user => this.currentUser = user);
+    this._cardsService.cardObserver$.subscribe(data => this.cards = data);
+    this._authenticationService.currentUser.subscribe(data => this.currentUser = data);
   }
 
   ngOnInit(): void {
