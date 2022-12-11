@@ -26,11 +26,11 @@ export type ModelCard = {
   id: number;
   name: string;
   description: string;
-  label: Array<[number]>;
-  assign: Array<[number]>;
-  checklist: Array<[ModelCheckList]>;
+  label: Array<number>;
+  assign: Array<number>;
+  checklist: Array<ModelCheckList>;
   deadline: string;
-  comment: Array<[ModelComment]>;
+  comment: Array<ModelComment>;
   category: number;
 };
 

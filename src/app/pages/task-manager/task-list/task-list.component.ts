@@ -1,4 +1,9 @@
 import { Component, OnInit } from "@angular/core";
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { ModelCard, } from '@app/models';
+import { State } from '@app/store/models/state.model';
+import { CardAction } from '@app/store/actions/card.actions';
 
 @Component({
   selector: "app-task-list",
@@ -11,7 +16,7 @@ export class TaskListComponent implements OnInit {
       id: 0,
       name: "Draf",
       color: "#adb5bd",
-      cards: [{ id: 1, name: "hihi" }, { id: 2, name: "hihi2" }],
+      cards: [],
     },
     {
       id: 1,
@@ -33,7 +38,20 @@ export class TaskListComponent implements OnInit {
     },
   ];
 
-  constructor() { }
+  private cardObserver: Observable<Array<ModelCard>>;
+  public cards: Array<ModelCard>
+  constructor(
+    private store: Store<State>,
+  ) {
+    this.cardObserver = this.store.select((store) => {
+      return store.cards
+    });
+    this.cardObserver.subscribe(data => this.cards = data);
+  }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.taskCategory.map((task, index) => {
+      return task.cards = this.cards.filter((card) => { return card.category == task.id })
+    })
+  }
 }
