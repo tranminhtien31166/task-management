@@ -47,4 +47,14 @@ export class TaskColumnComponent implements OnInit {
     });
     this.dialogRef.afterClosed().subscribe((result) => { });
   }
+  public openFormAdd(el) {
+    let parent = el.currentTarget.parentNode;
+    parent.querySelector('.form-add').classList.remove('hidden');
+    parent.querySelector('.btn-add').classList.add('hidden');
+  }
+  public closeFormAdd(el) {
+    let parent = el.currentTarget.parentNode.parentNode.parentNode;
+    parent.querySelector('.form-add').classList.add('hidden');
+    parent.querySelector('.btn-add').classList.remove('hidden');
+  }
 }

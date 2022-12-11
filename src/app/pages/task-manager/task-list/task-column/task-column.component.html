@@ -39,12 +39,15 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="w-100">
-                        <textarea class="w-100" placeholder="+ Add card"></textarea>
-                    </div>
-                    <div class="text-end">
-                        <button class="btn btn-primary">Add</button>
-                        <button class="btn btn-light">X</button>
+                    <div class="cursor btn-add" (click)="openFormAdd($event)">+ Add card</div>
+                    <div class="form-add hidden">
+                        <div class="w-100">
+                            <textarea class="w-100" placeholder="Title this card"></textarea>
+                        </div>
+                        <div class="text-end">
+                            <img class="cursor me-2" src="assets/icon/close.svg" (click)="closeFormAdd($event)">
+                            <button class="btn btn-primary">Add</button>
+                        </div>
                     </div>
                 </div>
             </div>
