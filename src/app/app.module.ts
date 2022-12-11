@@ -8,7 +8,7 @@ import { HeaderComponent } from '@app/layouts/header/header.component';
 import { AdminComponent } from '@app/layouts/admin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
-// import { MaterialModule } from './modules/material.module';
+import { CommonModule } from '@angular/common';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 @NgModule({
@@ -19,10 +19,10 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
     HeaderComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    // MaterialModule,
     MatDialogModule
   ],
   providers: [

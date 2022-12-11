@@ -1,32 +1,16 @@
 <div class="login-header">
   <img
     src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.397/static/media/trello-logo-blue.f7627b3a.svg"
-    alt="Trello Logo"
-  />
+    alt="Trello Logo" />
 </div>
 <div class="login">
   <p class="title">Team task overview</p>
-  <div class="">
-    <div class="user-form line" (click)="goToHome()">
-      <img src="assets/images/user/tranminhtien.jpg" />
-      <div class="ms-4 my-auto">
-        <p class="mb-1 name">Trần Minh Tiến</p>
-        <p class="mb-1">tranminhtien31166@gmail.com</p>
-      </div>
-    </div>
-    <div class="user-form line" (click)="goToHome()">
-      <img src="assets/images/user/tranminhtien.jpg" />
-      <div class="ms-4 my-auto">
-        <p class="mb-1 name">Trần Minh Tiến</p>
-        <p class="mb-1">tranminhtien31166@gmail.com</p>
-      </div>
-    </div>
-    <div class="user-form" (click)="goToHome()">
-      <img src="assets/images/user/tranminhtien.jpg" />
-      <div class="ms-4 my-auto">
-        <p class="mb-1 name">Trần Minh Tiến</p>
-        <p class="mb-1">tranminhtien31166@gmail.com</p>
-      </div>
+
+  <div *ngFor="let user of users" class="user-form line" (click)="goToHome()">
+    <img src={{user.avatar}} />
+    <div class="ms-4 my-auto">
+      <p class="mb-1 name">{{user.name}}</p>
+      <p class="mb-1">{{user.email}}</p>
     </div>
   </div>
 </div>
