@@ -15,6 +15,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { HeaderComponent } from '@app/layouts/header/header.component';
 import { AdminComponent } from '@app/layouts/admin.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     HeaderComponent
   ],
   imports: [
+    FormsModule,
+    NgSelectModule,
     CommonModule,
     BrowserModule,
     AppRoutingModule,
@@ -37,6 +41,11 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     BackendService,
     DatePipe
   ],
+  // {
+  //   path: '**',
+  //   redirectTo: '',
+  //   pathMatch: 'full'
+  // }
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -10,7 +10,8 @@ import { MaterialModule } from '@app/modules/material.module';
 import { viLocale } from "ngx-bootstrap/locale";
 import { defineLocale } from "ngx-bootstrap/chronos";
 import { BsDatepickerModule, BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
-
+import { NgSelectModule, NgOption } from '@ng-select/ng-select';
+import { FormControl, FormGroup, ReactiveFormsModule, FormsModule, } from '@angular/forms';
 defineLocale("vi", viLocale);
 
 export function getDatepickerConfig(): BsDatepickerConfig {
@@ -19,6 +20,10 @@ export function getDatepickerConfig(): BsDatepickerConfig {
     dateInputFormat: 'DD/MM/YYYY'
   });
 }
+
+
+
+
 @NgModule({
   declarations: [
     TaskListComponent,
@@ -27,6 +32,9 @@ export function getDatepickerConfig(): BsDatepickerConfig {
     TaskDetailComponent
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    NgSelectModule,
     CommonModule,
     MaterialModule,
     TaskManagerRoutingModule,

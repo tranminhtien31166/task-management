@@ -7,6 +7,7 @@ import { State } from '@app/store/models/state.model';
 import { CardAction } from '@app/store/actions/card.actions';
 import _find from 'lodash/find';
 import { DatePipe } from '@angular/common';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-task-detail',
@@ -19,9 +20,12 @@ export class TaskDetailComponent implements OnInit {
   public card: ModelCard
   public deadline: any;
   public minDate = new Date();
+  public form: FormGroup;
+  public users = [{ id: 1, name: "tien" }];
   constructor(
     @Inject(MAT_DIALOG_DATA) public data,
     private _cardsService: CardsService,
+    private _formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<TaskDetailComponent>,
     private store: Store<State>,
   ) {
@@ -34,7 +38,17 @@ export class TaskDetailComponent implements OnInit {
     if (this.card.deadline) {
       this.deadline = new Date(this.card.deadline)
     }
+    this._formControl();
   }
+
+  private _formControl() {
+    this.form = this._formBuilder.group({
+      users: [{ value: 1, disabled: false }],
+    });
+  }
+
+  public get f() { return this.form.controls; }
+
   public closeFormDialog(close: any) {
     this.dialogRef.close(close);
   }
@@ -90,5 +104,7 @@ export class TaskDetailComponent implements OnInit {
     card.priority = !card.priority;
     this.store.dispatch(new CardAction(card, "UPDATE_CARD_BY_ID"));
   }
+  public updateUsersList(el) {
 
+  }
 }

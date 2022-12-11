@@ -23,11 +23,19 @@
     <div class="d-flex justify-content-start mt-3">
         <div class="me-5 form-members ">
             <p class="mb-1">Members</p>
-            <div class="d-flex justify-content-start">
-                <img class="me-1" src="assets/images/user/tranminhtien.jpg">
+            <!-- <img class="me-1" src="assets/images/user/tranminhtien.jpg">
                 <img class="me-1" src="assets/images/user/thaithuytrieu.jpeg">
                 <img class="me-1" src="assets/images/user/phamduytin.jpg">
-                <img class="me-1 bg-secondary" src="assets/icon/plus.svg">
+                <img class="me-1 bg-secondary" src="assets/icon/plus.svg"> -->
+            <div class="mt-2">
+                <ng-select [items]="users" bindLabel="name" bindValue="id" labelForId="state" [multiple]="true"
+                    placeholder="Select cities" clearAllText="Clear" formControlName="users"
+                    (click)="catchFocus($event)" [clearable]="false">
+                </ng-select>
+                <!-- <div class="text-end mt-2 btn-add hidden">
+                    <img class="cursor me-2" src="assets/icon/close.svg" (click)="closeFocus($event)">
+                    <button type="button" class="btn btn-primary" (click)="updateUsersList($event)">Add</button>
+                </div> -->
             </div>
         </div>
         <div class="me-5 form-time">
