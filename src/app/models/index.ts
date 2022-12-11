@@ -38,5 +38,5 @@ export type ModelTaskCategory = {
   id: number;
   name: string;
   color: string;
-  cards: Array<[number]>;
+  data: Array<ModelCard>;
 };

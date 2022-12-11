@@ -32,7 +32,6 @@ export class TaskDetailComponent implements OnInit {
   }
   public openFormAdd(el) {
     let parent = el.currentTarget.parentNode.parentNode;
-    console.log(parent);
     parent.querySelector('.form-add').classList.remove('hidden');
     parent.querySelector('.btn-add').classList.add('hidden');
   }
