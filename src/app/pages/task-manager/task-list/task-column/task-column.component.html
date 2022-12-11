@@ -38,18 +38,18 @@
                         <img class="ms-1" src="assets/images/user/thaithuytrieu.jpeg" />
                     </div>
                 </div>
-                <div class="form-group">
+                <form class="form-group">
                     <div class="cursor btn-add" (click)="openFormAdd($event)">+ Add card</div>
                     <div class="form-add hidden">
                         <div class="w-100">
-                            <textarea class="w-100" placeholder="Title this card"></textarea>
+                            <textarea class="w-100 input" placeholder="Title this card"></textarea>
                         </div>
                         <div class="text-end">
                             <img class="cursor me-2" src="assets/icon/close.svg" (click)="closeFormAdd($event)">
-                            <button class="btn btn-primary">Add</button>
+                            <button type="button" class="btn btn-primary" (click)="addForm($event)">Add</button>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

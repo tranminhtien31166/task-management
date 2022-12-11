@@ -57,4 +57,10 @@ export class TaskColumnComponent implements OnInit {
     parent.querySelector('.form-add').classList.add('hidden');
     parent.querySelector('.btn-add').classList.remove('hidden');
   }
+  public addForm(el) {
+    let parent = el.currentTarget.parentNode.parentNode.parentNode;
+    let value = parent.querySelector('.input').value;
+    console.log(value);
+
+  }
 }
