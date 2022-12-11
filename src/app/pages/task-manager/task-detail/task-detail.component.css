@@ -1,0 +1,36 @@
+.task-title {
+    position: relative;
+}
+
+.icon-close {
+    position: absolute;
+    right: 0;
+}
+
+.task-detail {}
+
+.task-detail .form-group {
+    /* width: 300px; */
+}
+
+.task-detail .form-action {
+    width: 200px;
+}
+
+.task-detail .form-action .action {
+    padding: 11px 7px;
+    border-radius: 5px;
+    background-color: #e1e1e1;
+    margin-bottom: 10px;
+}
+
+.task-detail .form-members img {
+    border-radius: 50px;
+    width: 30px;
+}
+
+.task-detail .form-members .label {
+    border-radius: 50px;
+    width: 30px;
+    height: 30px;
+}

@@ -1,15 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
-body, html {
+body,
+html {
     /* height: 100%; */
     margin: 0;
     padding: 0;
-    font-size: 13px!important;
+    font-size: 13px !important;
     font-weight: 400;
-    font-family: Poppins,Helvetica,sans-serif;
+    font-family: Poppins, Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #F9F3F3;
 }
-.cursor{
+
+.cdk-overlay-container {
+    z-index: 10000;
+    background-color: #3e3e3ea3;
+}
+
+.mat-dialog-container {
+    padding: 18px 24px !important;
+    overflow: hidden !important;
+}
+
+.cursor {
     cursor: pointer;
 }

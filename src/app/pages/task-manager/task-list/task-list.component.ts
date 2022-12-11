@@ -11,7 +11,7 @@ export class TaskListComponent implements OnInit {
       id: 0,
       name: "Draf",
       color: "#adb5bd",
-      cards: [{ id: 1, name: "hihi" }],
+      cards: [{ id: 1, name: "hihi" }, { id: 2, name: "hihi2" }],
     },
     {
       id: 1,
@@ -33,7 +33,7 @@ export class TaskListComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

@@ -22,7 +22,8 @@ export class TaskColumnComponent implements OnInit {
     public dialog: MatDialog
   ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  }
   public drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(
@@ -39,9 +40,10 @@ export class TaskColumnComponent implements OnInit {
       );
     }
   }
-  openModalCardDetail() {
+  public openModalCardDetail(data) {
     this.dialogRef = this.dialog.open(TaskDetailComponent, {
       width: '70vw',
+      data: data
     });
     this.dialogRef.afterClosed().subscribe((result) => { });
   }

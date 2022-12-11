@@ -8,9 +8,12 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class TaskDetailComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: { name: string }) { }
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data
+  ) { }
 
   ngOnInit(): void {
+    console.log(this.data);
   }
 
 }

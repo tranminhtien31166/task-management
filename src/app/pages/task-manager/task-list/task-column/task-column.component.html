@@ -6,8 +6,9 @@
         <div class="task-body">
             <div cdkDropList [cdkDropListData]="category.cards" class="example-list"
                 (cdkDropListDropped)="drop($event)">
-                <div class="example-box p-2 mb-3" *ngFor="let card of category.cards" cdkDrag>
-                    <img class="edit" src="assets/icon/edit.svg" (click)="openModalCardDetail()" />
+                <div class="example-box p-2 mb-3" *ngFor="let card of category.cards" cdkDrag
+                    (click)="openModalCardDetail(card)">
+                    <img class="edit" src="assets/icon/edit.svg" />
                     <div class="d-flex flex-wrap">
                         <span class="label label-success me-1"></span>
                         <span class="label label-danger me-1"></span>
