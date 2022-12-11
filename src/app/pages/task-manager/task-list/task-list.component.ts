@@ -15,15 +15,22 @@ export class TaskListComponent implements OnInit {
   public taskCategory: any[] = [];
 
   public cards: Array<ModelCard>
+  public cardsClone: Array<ModelCard>
   constructor(
     private _cardsService: CardsService,
   ) {
     this._cardsService.cardObserver$.subscribe(data => this.cards = data);
-    this.taskCategory = this._cardsService.filterByCategory();
+
   }
   ngOnInit(): void {
   }
   ngDoCheck(): void {
+    console.log('ngDoCheck');
+    if (this.cards != this.cardsClone) {
+      console.log('update');
+      this.cardsClone = this.cards;
+      this.taskCategory = this._cardsService.filterByCategory();
+    }
   }
 
 }

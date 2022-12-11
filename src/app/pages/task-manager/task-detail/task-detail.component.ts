@@ -31,7 +31,6 @@ export class TaskDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.card);
     if (this.card.deadline) {
       this.deadline = new Date(this.card.deadline)
     }

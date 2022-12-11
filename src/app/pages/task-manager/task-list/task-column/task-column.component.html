@@ -6,30 +6,27 @@
         <div class="task-body">
             <div cdkDropList [cdkDropListData]="category.cards" class="example-list"
                 (cdkDropListDropped)="drop($event, category.id)">
-                <div class="example-box p-2 mb-3" *ngFor="let card of category.cards" cdkDrag
+                <div class="example-box p-3 mb-3" *ngFor="let card of category.cards" cdkDrag
                     (click)="openModalCardDetail(card)">
                     <img class="edit" src="assets/icon/edit.svg" />
                     <div class="d-flex justify-content-between">
                         <span class="card-name">{{ card.name }}</span>
-                        <img *ngIf="card.priority" width="32px" class="text-end me-4" src="assets/icon/up-arrow.svg" />
+                        <img *ngIf="card.priority" width="32px" class="text-end me-4 priority"
+                            src="assets/icon/up-arrow.svg" />
                     </div>
 
-                    <div class="footer-badge">
+                    <div class="footer-badge mt-2 d-flex align-items-center">
                         <img *ngIf="card.description" src="assets/icon/subject.svg" />
                         <div class="ms-2">
                             <img src="assets/icon/chat.svg" />
                             <span class="ms-1">2</span>
                         </div>
-                        <!-- <div *ngIf="card.checklist && card.checklist.length > 0" class="ms-2">
-                            <img src="assets/icon/checkbox.svg" />
-                            <span class="ms-1">2/3</span>
-                        </div> -->
                         <div *ngIf="card.deadline" class=" ms-2">
                             <img src="assets/icon/clock.svg" />
                             <span class="ms-1">{{renderFieldTime(card)}}</span>
                         </div>
                     </div>
-                    <div class="footer-assign">
+                    <div class="footer-assign mt-2">
                         <img class="ms-1" src="assets/images/user/tranminhtien.jpg" />
                         <img class="ms-1" src="assets/images/user/phamduytin.jpg" />
                         <img class="ms-1" src="assets/images/user/thaithuytrieu.jpeg" />

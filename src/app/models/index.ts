@@ -40,3 +40,10 @@ export type ModelTaskCategory = {
   color: string;
   data: Array<ModelCard>;
 };
+
+export type ModelCategory = {
+  id: number;
+  name: string;
+  color: string;
+  data: Array<ModelCard>;
+};
