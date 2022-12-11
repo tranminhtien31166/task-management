@@ -31,6 +31,7 @@ export class TaskDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.card);
     if (this.card.deadline) {
       this.deadline = new Date(this.card.deadline)
     }
@@ -84,6 +85,12 @@ export class TaskDetailComponent implements OnInit {
     card.deadline = this.deadline;
     this.store.dispatch(new CardAction(card, "UPDATE_CARD_BY_ID"));
     this.closeFocus(el);
+  }
+  public changePriority() {
+    let card = JSON.parse(JSON.stringify(this.card));
+    card.priority = !card.priority;
+    console.log(card);
+    this.store.dispatch(new CardAction(card, "UPDATE_CARD_BY_ID"));
   }
 
 }

@@ -89,7 +89,7 @@ export class TaskColumnComponent implements OnInit {
           id: moment().unix(),
           name: value,
           description: "",
-          label: [],
+          priority: false,
           assign: [this.currentUser.id],
           checklist: [],
           deadline: '',

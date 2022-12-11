@@ -37,9 +37,9 @@
     cursor: pointer;
 }
 
-.task-title span {
+.task-title {
     font-weight: 500;
-    font-size: 20px;
+    font-size: 20px !important;
     color: #181c32;
 }
 

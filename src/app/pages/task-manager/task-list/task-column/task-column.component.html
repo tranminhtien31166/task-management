@@ -1,7 +1,7 @@
 <div class="task-colum pe-2">
     <div class="task" [ngStyle]="{ 'background-color': category.color }">
         <div class="task-title pb-2">
-            <span>{{ category.name }}</span>
+            <span class="task-title">{{ category.name }}</span>
         </div>
         <div class="task-body">
             <div cdkDropList [cdkDropListData]="category.cards" class="example-list"
@@ -9,12 +9,9 @@
                 <div class="example-box p-2 mb-3" *ngFor="let card of category.cards" cdkDrag
                     (click)="openModalCardDetail(card)">
                     <img class="edit" src="assets/icon/edit.svg" />
-                    <div class="d-flex flex-wrap">
-                        <span class="label label-success me-1"></span>
-                        <span class="label label-danger me-1"></span>
-                    </div>
-                    <div class="py-2">
-                        <span>{{ card.name }}</span>
+                    <div class="py-2 d-flex justify-content-between">
+                        <span class="fs-5">{{ card.name }}</span>
+                        <img *ngIf="card.priority" width="32px" class="text-end me-4" src="assets/icon/up-arrow.svg" />
                     </div>
 
                     <div class="footer-badge">

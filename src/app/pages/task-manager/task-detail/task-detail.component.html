@@ -44,10 +44,8 @@
         </div>
         <div class="me-5 form-members">
             <p class="mb-1">Priority</p>
-            <div class="d-flex justify-content-start">
-                <div class="me-1 bg-secondary label"></div>
-                <div class="me-1 bg-primary label"></div>
-                <div class="me-1 bg-success label"></div>
+            <div class="prority text-center" (click)="changePriority()">
+                <img *ngIf="card.priority" width="32px" src="assets/icon/up-arrow.svg" />
             </div>
         </div>
     </div>

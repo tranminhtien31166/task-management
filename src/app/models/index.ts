@@ -26,7 +26,7 @@ export type ModelCard = {
   id: number;
   name: string;
   description: string;
-  label: Array<number>;
+  priority: false;
   assign: Array<number>;
   checklist: Array<ModelCheckList>;
   deadline: string;

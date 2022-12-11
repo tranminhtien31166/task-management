@@ -9,8 +9,11 @@
 
 .task-detail {}
 
-.task-detail .form-group {
-    /* width: 300px; */
+.task-detail .prority {
+    border: solid 1px #bebcbc;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
 }
 
 .task-detail .form-action {
