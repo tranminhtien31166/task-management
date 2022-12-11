@@ -9,8 +9,8 @@
                 <div class="example-box p-2 mb-3" *ngFor="let card of category.cards" cdkDrag
                     (click)="openModalCardDetail(card)">
                     <img class="edit" src="assets/icon/edit.svg" />
-                    <div class="py-2 d-flex justify-content-between">
-                        <span class="fs-5">{{ card.name }}</span>
+                    <div class="d-flex justify-content-between">
+                        <span class="card-name">{{ card.name }}</span>
                         <img *ngIf="card.priority" width="32px" class="text-end me-4" src="assets/icon/up-arrow.svg" />
                     </div>
 
@@ -20,10 +20,10 @@
                             <img src="assets/icon/chat.svg" />
                             <span class="ms-1">2</span>
                         </div>
-                        <div *ngIf="card.checklist && card.checklist.length > 0" class="ms-2">
+                        <!-- <div *ngIf="card.checklist && card.checklist.length > 0" class="ms-2">
                             <img src="assets/icon/checkbox.svg" />
                             <span class="ms-1">2/3</span>
-                        </div>
+                        </div> -->
                         <div *ngIf="card.deadline" class=" ms-2">
                             <img src="assets/icon/clock.svg" />
                             <span class="ms-1">{{renderFieldTime(card)}}</span>

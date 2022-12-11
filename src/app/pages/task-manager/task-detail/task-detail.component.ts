@@ -89,7 +89,6 @@ export class TaskDetailComponent implements OnInit {
   public changePriority() {
     let card = JSON.parse(JSON.stringify(this.card));
     card.priority = !card.priority;
-    console.log(card);
     this.store.dispatch(new CardAction(card, "UPDATE_CARD_BY_ID"));
   }
 
