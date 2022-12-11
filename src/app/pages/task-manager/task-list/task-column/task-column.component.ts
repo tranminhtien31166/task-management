@@ -9,7 +9,8 @@ import { ModelTaskCategory } from "@app/models";
 import { TaskDetailComponent } from "../../task-detail/task-detail.component";
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { ModelCard, } from '@app/models';
+import { AuthenticationService } from '@app/services';
+import { ModelCard, ModelUser } from '@app/models';
 import { State } from '@app/store/models/state.model';
 import { CardAction } from '@app/store/actions/card.actions';
 import * as moment from "moment";
@@ -22,19 +23,23 @@ import * as moment from "moment";
 export class TaskColumnComponent implements OnInit {
   @Input() category: ModelTaskCategory;
   public dialogRef: any;
-  private cardObserver: Observable<Array<ModelCard>>;
+  public currentUser: ModelUser;
+  private cardObserver$: Observable<Array<ModelCard>>;
   public cards: Array<ModelCard>
   constructor(
+    private _authenticationService: AuthenticationService,
     private store: Store<State>,
     public dialog: MatDialog
   ) {
-    this.cardObserver = this.store.select((store) => {
+    this.cardObserver$ = this.store.select((store) => {
       return store.cards
     });
-    this.cardObserver.subscribe(data => this.cards = data);
+    this.cardObserver$.subscribe(data => this.cards = data);
+    this._authenticationService.currentUser.subscribe(user => this.currentUser = user);
   }
 
   ngOnInit(): void {
+    console.log(this.currentUser);
   }
 
   public drop(event: CdkDragDrop<string[]>) {
@@ -80,17 +85,17 @@ export class TaskColumnComponent implements OnInit {
           name: value,
           description: "",
           label: [],
-          assign: [],
+          assign: [this.currentUser.id],
           checklist: [],
           deadline: '',
           comment: [],
           category: this.category.id,
         },
         "ADD_ITEM"));
+
+      parent.querySelector('.input').value = "";
+      this.closeFormAdd(el);
     }
 
-  }
-  public async viewForm(el) {
-    console.log(this.cards);
   }
 }
