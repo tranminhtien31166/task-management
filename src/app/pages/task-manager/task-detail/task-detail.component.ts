@@ -14,13 +14,11 @@ export class TaskDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.data);
   }
   public closeFormDialog(close: any) {
     this.dialogRef.close(close);
   }
   public handleChangeInput(event) {
-    console.log(event.target.value);
   }
 
 }

@@ -9,10 +9,10 @@ import { ModelTaskCategory } from "@app/models";
 import { TaskDetailComponent } from "../../task-detail/task-detail.component";
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { Article } from '@app/store/models/article.model';
+import { ModelCard, } from '@app/models';
 import { State } from '@app/store/models/state.model';
-import { AddArticleAction } from '@app/store/actions/article.actions';
-
+import { CardAction } from '@app/store/actions/card.actions';
+import * as moment from "moment";
 
 @Component({
   selector: "app-task-column",
@@ -22,16 +22,16 @@ import { AddArticleAction } from '@app/store/actions/article.actions';
 export class TaskColumnComponent implements OnInit {
   @Input() category: ModelTaskCategory;
   public dialogRef: any;
-  articles$: Observable<Array<Article>>;
-  public data: Array<Article>
+  private cardObserver: Observable<Array<ModelCard>>;
+  public cards: Array<ModelCard>
   constructor(
     private store: Store<State>,
     public dialog: MatDialog
   ) {
-    this.articles$ = this.store.select((store) => {
-      return store.article
+    this.cardObserver = this.store.select((store) => {
+      return store.cards
     });
-    this.articles$.subscribe(user => this.data = user);
+    this.cardObserver.subscribe(data => this.cards = data);
   }
 
   ngOnInit(): void {
@@ -73,11 +73,24 @@ export class TaskColumnComponent implements OnInit {
   public addForm(el) {
     let parent = el.currentTarget.parentNode.parentNode.parentNode;
     let value = parent.querySelector('.input').value;
-
-    this.store.dispatch(new AddArticleAction({ name: value }));
+    if (value) {
+      this.store.dispatch(new CardAction(
+        {
+          id: moment().unix(),
+          name: value,
+          description: "",
+          label: [],
+          assign: [],
+          checklist: [],
+          deadline: '',
+          comment: [],
+          category: this.category.id,
+        },
+        "ADD_ITEM"));
+    }
 
   }
   public async viewForm(el) {
-    console.log(this.data);
+    console.log(this.cards);
   }
 }

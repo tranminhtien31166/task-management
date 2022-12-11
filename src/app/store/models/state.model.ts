@@ -1,5 +1,5 @@
-import { Article } from '../models/article.model';
+import { ModelCard } from '@app/models';
 
 export interface State {
-  readonly article: Array<Article>;
+  readonly cards: Array<ModelCard>;
 }

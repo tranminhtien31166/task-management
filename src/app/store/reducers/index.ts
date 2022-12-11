@@ -1,4 +1,4 @@
-import { ArticleReducer } from './article.reducer';
+import { CardReducer } from './card.reducer';
 export const reducer = {
-    article: ArticleReducer,
+    cards: CardReducer,
 }
