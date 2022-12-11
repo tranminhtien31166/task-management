@@ -9,7 +9,7 @@ import { ModelTaskCategory } from "@app/models";
 import { TaskDetailComponent } from "../../task-detail/task-detail.component";
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { AuthenticationService, CardsService } from '@app/services';
+import { AuthenticationService, CardsService, UsersService } from '@app/services';
 import { ModelCard, ModelUser } from '@app/models';
 import { State } from '@app/store/models/state.model';
 import { CardAction } from '@app/store/actions/card.actions';
@@ -24,15 +24,18 @@ export class TaskColumnComponent implements OnInit {
   @Input() category: ModelTaskCategory;
   public dialogRef: any;
   public currentUser: ModelUser;
+  public users: Array<ModelUser>;
   public cards: Array<ModelCard>
   constructor(
     private _authenticationService: AuthenticationService,
     private _cardsService: CardsService,
+    private _usersService: UsersService,
     private store: Store<State>,
     public dialog: MatDialog
   ) {
     this._cardsService.cardObserver$.subscribe(data => this.cards = data);
     this._authenticationService.currentUser.subscribe(data => this.currentUser = data);
+    this._usersService.userList.subscribe(data => this.users = data);
   }
 
   ngOnInit(): void {
@@ -80,6 +83,9 @@ export class TaskColumnComponent implements OnInit {
     parent.querySelector('.form-add').classList.add('hidden');
     parent.querySelector('.btn-add').classList.remove('hidden');
   }
+  public renderFieldMembers() {
+
+  }
   public addForm(el) {
     let parent = el.currentTarget.parentNode.parentNode.parentNode;
     let value = parent.querySelector('.input').value;
@@ -102,5 +108,9 @@ export class TaskColumnComponent implements OnInit {
       this.closeFormAdd(el);
     }
 
+  }
+  public renderLinkAvatar(member) {
+    let result = this.users.find((user) => { return member == user.id });
+    return result.avatar
   }
 }

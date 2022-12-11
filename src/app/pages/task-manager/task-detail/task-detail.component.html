@@ -15,7 +15,7 @@
                 <button type="button" class="btn btn-primary" (click)="addForm($event)">Add</button>
             </div>
         </div>
-        <span class="fst-italic fs-6">In list </span> <span class="fw-bold ms-1">Draf</span>
+        <!-- <span class="fst-italic fs-6">In list </span> <span class="fw-bold ms-1">Draf</span> -->
     </div>
     <img class="cursor icon-close" height="30px" src="assets/icon/close.svg" (click)="closeFormDialog('close')">
 </div>
@@ -23,10 +23,6 @@
     <div class="d-flex justify-content-start mt-3">
         <div class="me-5 form-members ">
             <p class="mb-1">Members</p>
-            <!-- <img class="me-1" src="assets/images/user/tranminhtien.jpg">
-                <img class="me-1" src="assets/images/user/thaithuytrieu.jpeg">
-                <img class="me-1" src="assets/images/user/phamduytin.jpg">
-                <img class="me-1 bg-secondary" src="assets/icon/plus.svg"> -->
             <div class="mt-2">
                 <form [formGroup]="form" (ngSubmit)="onSearch()">
                     <ng-select [items]="users" bindLabel="name" bindValue="id" labelForId="state" [multiple]="true"
@@ -97,7 +93,7 @@
 
 
         </div>
-        <div class="form-action">
+        <!-- <div class="form-action">
             <div class="d-flex justify-content-start action">
                 <img class="" height="20px" src="assets/icon/move.svg">
                 <div class="ms-2">
@@ -110,7 +106,7 @@
                     <span class="mb-0">Delete</span>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 
 </mat-dialog-content>

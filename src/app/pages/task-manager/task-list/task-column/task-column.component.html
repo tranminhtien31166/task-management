@@ -16,8 +16,8 @@
                     </div>
 
                     <div class="footer-badge mt-2 d-flex align-items-center">
-                        <!-- <img *ngIf="card.description" src="assets/icon/subject.svg" />
-                        <div class="ms-2">
+                        <img *ngIf="card.description" src="assets/icon/subject.svg" />
+                        <!-- <div class="ms-2">
                             <img src="assets/icon/chat.svg" />
                             <span class="ms-1">2</span>
                         </div> -->
@@ -27,9 +27,7 @@
                         </div>
                     </div>
                     <div class="footer-assign mt-2">
-                        <img class="ms-1" src="assets/images/user/tranminhtien.jpg" />
-                        <img class="ms-1" src="assets/images/user/phamduytin.jpg" />
-                        <img class="ms-1" src="assets/images/user/thaithuytrieu.jpeg" />
+                        <img class="ms-1" src={{renderLinkAvatar(member)}} *ngFor="let member of card.assign" />
                     </div>
                 </div>
                 <form class="form-group">
