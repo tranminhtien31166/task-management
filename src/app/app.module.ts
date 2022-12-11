@@ -7,8 +7,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { HeaderComponent } from '@app/layouts/header/header.component';
 import { AdminComponent } from '@app/layouts/admin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
-import { MaterialModule } from './modules/material.module';
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+// import { MaterialModule } from './modules/material.module';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 @NgModule({
   declarations: [
@@ -21,14 +22,17 @@ import { MaterialModule } from './modules/material.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule,
+    // MaterialModule,
+    MatDialogModule
   ],
   providers: [
-    BackendService,
-    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true, disableClose: true, maxWidth: '90vw' } },
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } },
+    BackendService
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
 
 }
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));
