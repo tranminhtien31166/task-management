@@ -1,10 +1,11 @@
 <div class="d-flex justify-content-start task-title mb-0" mat-dialog-title>
     <img class="mt-2" height="20px" src="assets/icon/board.svg">
     <div class="ms-2">
-        <h2 class="mb-0">{{data.name}}</h2>
+        <!-- <h2 class="mb-0">{{data.name}}</h2> -->
+        <input value={{data.name}} (change)="handleChangeInput($event)" class="w-100" />
         <span class="fst-italic fs-6">In list </span> <span class="fw-bold ms-1">Draf</span>
     </div>
-    <img class="cursor icon-close" height="30px" src="assets/icon/close.svg">
+    <img class="cursor icon-close" height="30px" src="assets/icon/close.svg" (click)="closeFormDialog('close')">
 </div>
 <mat-dialog-content class="mat-typography task-detail">
     <div class="d-flex justify-content-start">
@@ -108,7 +109,7 @@
 
 
 </mat-dialog-content>
-<mat-dialog-actions align="end">
+<!-- <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>
     <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
-</mat-dialog-actions>
+</mat-dialog-actions> -->
