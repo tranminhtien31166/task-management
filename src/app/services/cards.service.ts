@@ -15,7 +15,7 @@ export class CardsService {
     public taskCategory = [
         {
             id: 0,
-            name: "Draf",
+            name: "Draft",
             color: "#adb5bd",
             cards: [],
         },
