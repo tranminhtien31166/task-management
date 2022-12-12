@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
-import { BackendService } from './backend.service';
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { ModelUser, ModelCard } from '@app/models';
 import { Store } from '@ngrx/store';
 import { State } from '@app/store/models/state.model';
 import { CardAction } from './store/actions/card.actions';
+import { temp } from '@app/data';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +17,10 @@ export class AppComponent {
   ) { }
   ngOnInit(): void {
     let cards = JSON.parse(localStorage.getItem('CARDS'));
+    if (!cards) {
+      localStorage.setItem('CARDS', JSON.stringify(temp));
+      cards = temp;
+    }
     this.store.dispatch(new CardAction(cards, "FETCH_CARDS"));
   }
 
