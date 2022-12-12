@@ -39,7 +39,7 @@
         <div class="me-5 form-time">
             <p class="mb-1">Deadline</p>
             <div class="mt-2">
-                <input type="text" class="form-control form-control-sm form-add" bsDatepicker placeholder="Deadline..."
+                <input type="text" class="form-control form-control-lg form-add" bsDatepicker placeholder="Deadline..."
                     [(bsValue)]="deadline" (focus)="catchFocus($event)" [minDate]="minDate" />
                 <div class="text-end mt-2 btn-add hidden">
                     <img class="cursor me-2" src="assets/icon/close.svg" (click)="closeFocus($event)">
@@ -51,7 +51,7 @@
         <div class="me-5 form-members">
             <p class="mb-1">Priority</p>
             <div class="prority text-center" (click)="changePriority()">
-                <img *ngIf="card.priority" width="32px" src="assets/icon/up-arrow.svg" />
+                <img class="mt-1" *ngIf="card.priority" width="32px" src="assets/icon/up-arrow.svg" />
             </div>
         </div>
     </div>
